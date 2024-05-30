@@ -10,7 +10,6 @@ namespace JuridicoProjeto.Mappings
         public void Configure(EntityTypeBuilder<Usuario> builder)
         {
 
-
                 builder.Property(p => p.Name)
                 .HasColumnType("varchar(100)")
                 .IsRequired();
@@ -18,6 +17,7 @@ namespace JuridicoProjeto.Mappings
                 builder.Property(p => p.Cpf)
                .HasColumnType("varchar(14)")
                 .IsRequired();
+
         }
     }
 }

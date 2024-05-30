@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace JuridicoProjeto.Migrations
 {
     /// <inheritdoc />
-    public partial class FirsMigration : Migration
+    public partial class FirstMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -78,18 +78,18 @@ namespace JuridicoProjeto.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    isAdvogado = table.Column<bool>(type: "bit", nullable: false),
-                    oab = table.Column<string>(type: "varchar(14)", nullable: true)
+                    oab = table.Column<string>(type: "varchar(14)", nullable: true),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UsuarioId = table.Column<string>(type: "nvarchar(450)", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Advogados", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Advogados_AspNetUsers_Id",
-                        column: x => x.Id,
+                        name: "FK_Advogados_AspNetUsers_UsuarioId",
+                        column: x => x.UsuarioId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -225,6 +225,11 @@ namespace JuridicoProjeto.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Advogados_UsuarioId",
+                table: "Advogados",
+                column: "UsuarioId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

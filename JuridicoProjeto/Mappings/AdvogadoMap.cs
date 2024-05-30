@@ -10,10 +10,11 @@ namespace JuridicoProjeto.Mappings
         {
             builder.ToTable("Advogados");
 
-            builder.HasBaseType<Usuario>();
+            builder.HasKey(x => x.Id);
 
             builder.Property(a => a.oab).HasColumnType("varchar(14)");
-           
+
+
         }
     }
 }

@@ -13,6 +13,8 @@ builder.Services.AddIdentity<Usuario, IdentityRole>
     (
         options =>
         {
+            options.SignIn.RequireConfirmedEmail = false;
+            options.SignIn.RequireConfirmedPhoneNumber = false;
             options.Password.RequiredUniqueChars = 0;
             options.Password.RequireUppercase = false;
             options.Password.RequiredLength = 8;

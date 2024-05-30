@@ -11,7 +11,6 @@ namespace JuridicoProjeto.Models
         public string Name { get; set; }
         public string Cpf { get; set; }
 
-
     }
 }
 

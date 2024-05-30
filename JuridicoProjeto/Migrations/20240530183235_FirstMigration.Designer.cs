@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JuridicoProjeto.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240530053150_FirsMigration")]
-    partial class FirsMigration
+    [Migration("20240530183235_FirstMigration")]
+    partial class FirstMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,27 @@ namespace JuridicoProjeto.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("JuridicoProjeto.Models.Advogado", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UsuarioId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("oab")
+                        .HasColumnType("varchar(14)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Advogados", (string)null);
+                });
 
             modelBuilder.Entity("JuridicoProjeto.Models.Documento", b =>
                 {
@@ -161,8 +182,6 @@ namespace JuridicoProjeto.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-
-                    b.UseTptMappingStrategy();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -300,15 +319,11 @@ namespace JuridicoProjeto.Migrations
 
             modelBuilder.Entity("JuridicoProjeto.Models.Advogado", b =>
                 {
-                    b.HasBaseType("JuridicoProjeto.Models.Usuario");
+                    b.HasOne("JuridicoProjeto.Models.Usuario", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId");
 
-                    b.Property<bool>("isAdvogado")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("oab")
-                        .HasColumnType("varchar(14)");
-
-                    b.ToTable("Advogados", (string)null);
+                    b.Navigation("Usuario");
                 });
 
             modelBuilder.Entity("JuridicoProjeto.Models.Documento", b =>
@@ -388,15 +403,6 @@ namespace JuridicoProjeto.Migrations
                     b.HasOne("JuridicoProjeto.Models.Usuario", null)
                         .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("JuridicoProjeto.Models.Advogado", b =>
-                {
-                    b.HasOne("JuridicoProjeto.Models.Usuario", null)
-                        .WithOne()
-                        .HasForeignKey("JuridicoProjeto.Models.Advogado", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
