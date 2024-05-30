@@ -1,0 +1,87 @@
+﻿@using JuridicoProjeto.ViewModels
+
+@model Register
+
+@{
+    ViewData["Title"] = "Registro";
+}
+
+<div class="row d-flex align-items-center justify-content-center">
+    <div class="col-md-4 card p-3">
+        <h2 class="text-center text-info">Registro</h2>
+        <form asp-action="Register" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-1">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="mb-1">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="mb-1">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="mb-1">
+                <label asp-for="ConfirmPassword" class="control-label"></label>
+                <input asp-for="ConfirmPassword" type="password" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <div class="mb-1">
+                <label asp-for="Cpf" class="control-label"></label>
+                <input asp-for="Cpf" class="form-control" />
+                <span asp-validation-for="Cpf" class="text-danger"></span>
+            </div>
+
+            <div class="mb-1 form-check">
+                <input asp-for="isAdvogado" class="form-check-input" id="isAdvogadoCheckbox" type="checkbox" />
+                <label asp-for="isAdvogado" class="form-check-label">É advogado?</label>
+            </div>
+
+            <div class="mb-1" id="oabField" style="display: none;">
+                <label asp-for="Oab" class="control-label"></label>
+                <input asp-for="Oab" class="form-control" id="OabInput" />
+                <span asp-validation-for="Oab" class="text-danger"></span>
+            </div>
+
+            <div class="row">
+                <div class="col-8">
+                    <a asp-action="Login" class="text-decoration-none float-start mt-2" asp-route-returnurl="@ViewData["ReturnUrl"]">Já tem uma conta?</a>
+                </div>
+                <div class="col-4">
+                    <input type="submit" value="Registrar" class="btn btn-primary btn-sm float-end" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var advogadoCheckbox = document.getElementById('isAdvogadoCheckbox');
+            var oabField = document.getElementById('oabField');
+            var oabInput = document.getElementById('OabInput');
+
+            advogadoCheckbox.addEventListener('change', function () {
+                if (this.checked) {
+                    oabField.style.display = 'block';
+                    oabInput.setAttribute('required', 'required');
+                } else {
+                    oabField.style.display = 'none';
+                    oabInput.removeAttribute('required');
+                }
+            });
+        });
+    </script>
+}
