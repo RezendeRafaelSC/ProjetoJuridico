@@ -1,8 +1,10 @@
-Projeto feito em .NET 8 com uso do Entity Framework para realizar o mapeamento das entidades aqui presentes em conjunto com o banco de dados SQL Server (Ele é necessário para o funcionamento do projeto, pois está todo configurado para ser rodado nele).
+## Projeto feito em .NET 8 com uso do Entity Framework para realizar o mapeamento das entidades aqui presentes em conjunto com o banco de dados SQL Server 
+(Ele é necessário para o funcionamento do projeto, pois está todo configurado para ser rodado nele).
 
-Foi utilizado uma API para autenticação e autorização de usuários chamada Idendity.
+## Foi utilizado uma API para autenticação e autorização de usuários chamada Idendity.
 
 Algumas etapas necessárias para a execução do projeto:
+
 Passo 1: Ir no arquivo appsettings.json na pasta raiz do projeto e na string "DefaultConnection" tudo o que vier após os dois pontos deverá ser trocado de acordo com sua configuração do SQL Server
   - Para conseguir a informaçãos necessária para a configuração dessa string você precisará ir na tela de conexão do banco e fazer o seguinte
       "DefaultConnection": "Server=(Tudo que estiver no seu ServerName e é se por acaso tiver alguma \ entre os caminhos dele, necessário adicionar um \ a mais!);Database=(Esse nome é personalizável para o que você quiser);Trusted_Connection=True;",
