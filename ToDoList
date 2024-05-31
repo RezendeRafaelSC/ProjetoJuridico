@@ -8,4 +8,5 @@
 [ ] Qualquer usuário Editar dados
 [ ] Usuário Visualizar processos
 [ ] Usuário anexar documentos no processo
-[ ] 
+[ ] Se usuário for advogado, poderá criar, editar, anexar documentos, excluir ou enviar o processo para outro advogado
+[ ] Se usuário for advogado poderá visualizar processos de outros advogados
