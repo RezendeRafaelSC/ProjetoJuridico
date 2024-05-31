@@ -5,9 +5,11 @@
 Algumas etapas necessárias para a execução do projeto:
 
 Passo 1: Ir no arquivo appsettings.json na pasta raiz do projeto e na string "DefaultConnection" tudo o que vier após os dois pontos deverá ser trocado de acordo com sua configuração do SQL Server
-  - Para conseguir a informaçãos necessária para a configuração dessa string você precisará ir na tela de conexão do banco e fazer o seguinte
+  - Para conseguir a informaçãos necessária para a configuração dessa string você precisará ir na tela de conexão do banco e fazer o seguinte:
       "DefaultConnection": "Server=(Tudo que estiver no seu ServerName e é se por acaso tiver alguma \ entre os caminhos dele, necessário adicionar um \ a mais!);Database=(Esse nome é personalizável para o que você quiser);Trusted_Connection=True;",
+    
       P.S: Tirar os parênteses na hora que você informar sua configuração.
+    
       P.S2: Caso por ventura você decidir usar outro deverá trocar também no arquivo program.cs e adaptar a linha 9 e 10 para o respectivo banco utilizado.
     
 Passo 2: Após banco de dados configurado você deverá realizar a migration para criação do banco de dados com suas tabelas e relacionamentos:
