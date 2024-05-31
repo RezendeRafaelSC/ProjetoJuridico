@@ -22,4 +22,5 @@ Passo 2: Após banco de dados configurado você deverá realizar a migration par
 Passo 3: Executar o projeto no botão do Visual Studio.
 
 
-![Modelo Entidade Relacionamento](https://github.com/RezendeRafaelSC/ProjetoJuridico/blob/master/ER.pdf)
+Modelo de Entidade Relacionamento criado para representar as tabelas e seus relacionamentos no banco.
+![Modelo Entidade Relacionamento](https://github.com/RezendeRafaelSC/ProjetoJuridico/blob/master/modeloEr.png)
