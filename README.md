@@ -1,5 +1,4 @@
 ## Projeto feito em .NET 8 com uso do Entity Framework para realizar o mapeamento das entidades aqui presentes em conjunto com o banco de dados SQL Server 
-(Ele é necessário para o funcionamento do projeto, pois está todo configurado para ser rodado nele).
 
 ## Foi utilizado uma API para autenticação e autorização de usuários chamada Idendity.
 
