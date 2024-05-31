@@ -21,6 +21,12 @@ Passo 2: Após banco de dados configurado você deverá realizar a migration par
 
 Passo 3: Executar o projeto no botão do Visual Studio.
 
+Deixei o dump do meu banco atual na pasta Dump na pasta raiz do projeto.
+
+O projeto atualmente está incompleto possuindo no momento as funções de cadastro de usuários e caso o usuário seja um advogado ele deverá marcar o check no formulário de registro e adicionar sua oab para ele ser criado na tabela de advogados também.
+Também possui a funçao de logar o usuário e deslogar.
+
+ToDoList foi criado para acompanhar o andamento das funcionalidades.
 
 Modelo de Entidade Relacionamento criado para representar as tabelas e seus relacionamentos no banco.
 ![Modelo Entidade Relacionamento](https://github.com/RezendeRafaelSC/ProjetoJuridico/blob/master/modeloEr.png)
