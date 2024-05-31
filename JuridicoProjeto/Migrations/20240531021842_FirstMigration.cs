@@ -196,12 +196,14 @@ namespace JuridicoProjeto.Migrations
                         name: "FK_Processos_Advogados_AdvogadoId",
                         column: x => x.AdvogadoId,
                         principalTable: "Advogados",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Processos_AspNetUsers_UsuarioId",
                         column: x => x.UsuarioId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(

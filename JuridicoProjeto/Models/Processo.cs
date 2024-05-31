@@ -6,6 +6,10 @@ namespace JuridicoProjeto.Models
    
     public class Processo
     {
+        protected Processo() 
+        {
+            Documentos = new List<Documento>();
+        }
         public Processo( int numeroProcesso, string tema, double? valor)
         {
             NumeroProcesso = numeroProcesso;
@@ -14,18 +18,17 @@ namespace JuridicoProjeto.Models
             
         }
 
-      
         public int Id { get; set; }        
         public int NumeroProcesso { get; set; }
         public string UsuarioId { get; set; }
-        public Usuario Usuario { get; set; }    
+        public virtual Usuario Usuario { get; set; }    
         public string AdvogadoId { get; set; }
-        public Advogado Advogado { get; set; }
+        public virtual Advogado Advogado { get; set; }
 
         public string Tema { get;set; }
         public double? Valor { get; set; }
 
-        public ICollection<Documento> Documentos { get; set;} 
+        public virtual ICollection<Documento> Documentos { get; set; }
 
     }
 }

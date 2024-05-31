@@ -24,6 +24,8 @@ namespace JuridicoProjeto.Mappings
             builder.Property(p => p.Extensao)
               .HasColumnType("varchar(100)")
               .IsRequired();
+
+
         }
     }
 }

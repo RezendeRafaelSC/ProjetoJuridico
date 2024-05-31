@@ -1,0 +1,58 @@
+﻿@using JuridicoProjeto.ViewModels
+
+@model Update
+
+@{
+    ViewData["Title"] = "Atualize seus dados!";
+}
+
+<div class="row d-flex align-items-center justify-content-center">
+    <div class="col-md-4 card p-3">
+        <h2 class="text-center text-info">Registro</h2>
+        <form asp-action="Register" method="post" asp-route-returnurl="@ViewData["ReturnUrl"]">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-1">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="mb-1">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <div class="mb-1">
+                <label asp-for="Cpf" class="control-label"></label>
+                <input asp-for="Cpf" class="form-control" />
+                <span asp-validation-for="Cpf" class="text-danger"></span>
+            </div>
+
+
+            <div class="mb-1" id="oabField" style="display: none;">
+                <label asp-for="Oab" class="control-label"></label>
+                <input asp-for="Oab" class="form-control" id="OabInput" />
+                <span asp-validation-for="Oab" class="text-danger"></span>
+            </div>
+
+            <div class="row">
+                <div class="col-4">
+                    <input type="submit" value="Registrar" class="btn btn-primary btn-sm float-end" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+           
+
+        });
+    </script>
+}

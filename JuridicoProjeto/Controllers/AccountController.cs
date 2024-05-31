@@ -5,6 +5,7 @@ using JuridicoProjeto.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace JuridicoProjeto.Controllers
 {
@@ -76,7 +77,15 @@ namespace JuridicoProjeto.Controllers
             }
             return View(model);
         }
-
+        [HttpGet]
+        public async Task<IActionResult> Update(Update model)
+        {
+            if (ModelState.IsValid)
+            {    
+            //Lógica aplicada + pegar usuário que tá logado + modelo do form do front-end
+            }
+            return View(model);
+        }
         public  async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();

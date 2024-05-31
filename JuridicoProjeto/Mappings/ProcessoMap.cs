@@ -24,10 +24,7 @@ namespace JuridicoProjeto.Mappings
             builder.Property(p => p.Valor)
                 .HasColumnType("numeric(30,2)");
 
-            builder.HasOne(x => x.Usuario).WithMany().HasForeignKey(x => x.UsuarioId).OnDelete(DeleteBehavior.NoAction);
-
-            builder.HasOne(x => x.Advogado).WithMany().HasForeignKey(x => x.AdvogadoId).OnDelete(DeleteBehavior.NoAction);
-
+            builder.HasMany(p => p.Documentos).WithOne(p => p.Processo);
 
         }
     }

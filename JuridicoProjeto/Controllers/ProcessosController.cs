@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using JuridicoProjeto.Data;
 using JuridicoProjeto.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace JuridicoProjeto.Controllers
 {
+    [Authorize]
     public class ProcessosController : Controller
     {
         private readonly DataContext _context;

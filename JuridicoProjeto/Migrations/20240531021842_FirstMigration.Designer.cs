@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JuridicoProjeto.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240530183235_FirstMigration")]
+    [Migration("20240531021842_FirstMigration")]
     partial class FirstMigration
     {
         /// <inheritdoc />
@@ -342,13 +342,13 @@ namespace JuridicoProjeto.Migrations
                     b.HasOne("JuridicoProjeto.Models.Advogado", "Advogado")
                         .WithMany()
                         .HasForeignKey("AdvogadoId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("JuridicoProjeto.Models.Usuario", "Usuario")
                         .WithMany()
                         .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Advogado");

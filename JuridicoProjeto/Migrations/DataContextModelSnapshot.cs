@@ -339,13 +339,13 @@ namespace JuridicoProjeto.Migrations
                     b.HasOne("JuridicoProjeto.Models.Advogado", "Advogado")
                         .WithMany()
                         .HasForeignKey("AdvogadoId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("JuridicoProjeto.Models.Usuario", "Usuario")
                         .WithMany()
                         .HasForeignKey("UsuarioId")
-                        .OnDelete(DeleteBehavior.NoAction)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Advogado");

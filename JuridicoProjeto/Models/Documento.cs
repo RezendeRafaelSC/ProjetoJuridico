@@ -23,7 +23,7 @@ namespace JuridicoProjeto.Models
         public string Extensao { get; set; }
        
         public int ProcessoId { get; set; }
-        public Processo Processo { get; set; } 
+        public virtual Processo Processo { get; set; } = null!;
 
     }
 }
